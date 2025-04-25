@@ -64,7 +64,44 @@ Configure AWS with CLI
 Configure AWS for terraform
 -
 - Create main.tf like below for EC2
+  - Here we provide provider name and region for the same i.e provider configuration. Location where to autonate the infrastructure. This verifies terraform has access to AWS or not
+  - Now we have to provide resources which we need to create below. Provide name of resource, image to be used, instance type
+  - We can also take the syntax from Hashicorp documentation.
 
 ![image](https://github.com/user-attachments/assets/ac8def93-c25b-4105-a4a6-c3a5cc508ac0)
+![image](https://github.com/user-attachments/assets/6fdf43d6-9a8d-4273-a216-293fb8e49090)
 
+- Now we've to run terraform commands which help us to create infra
+  - **terraform init** :- To initialize the configuration. Means it will read tf files and will fetch the defined cloud provider credentials. Here we need to go to right directory (day 1 :- cd command) so that it will initialize terraform.
+    - This will initialize provider plugins which reads from tf files about which cloud provider to use.
+
+  ![image](https://github.com/user-attachments/assets/97621001-fdbb-431e-9ed6-a4b9b67322be)
+
+  - **terraform plan** :- just like dry run before creating infrastructure we can use this command to see what its going to create
+    - It will give us all info of the resource we're creating
+ 
+  ![image](https://github.com/user-attachments/assets/d14b0d6b-1330-46eb-bf7b-804d18873c31)
+
+  - **terraform apply** :- to apply the configuration
+    - We can see iur resource got created and also check the same in AWS UI
+ 
+![image](https://github.com/user-attachments/assets/70c412c0-bc6b-48ed-a7b1-e866e265590b)
+![image](https://github.com/user-attachments/assets/dc2beacb-fc4b-4999-a7a2-0f0de7a8166a)
+
+- We can also add subnet ID in tf file to attach EC2 to specific subnet
+
+![image](https://github.com/user-attachments/assets/5962c393-7a7b-4135-b400-1443f68c9fd3)
+
+- Now install hashicorp terraform and hashicorp hcl in codespace
+
+![image](https://github.com/user-attachments/assets/1296a834-a152-48bf-a492-0e3bd71c180c)
+![image](https://github.com/user-attachments/assets/5a3b996c-0c9c-4a8d-bec2-30b3aa6b60d2)
+
+- We can also add key-value pair which is used to login to the instance
+
+![image](https://github.com/user-attachments/assets/7f1483fc-fbd6-40c6-9403-00ab80491faf)
+
+
+ 
+- If any of the field in tf file like ami is not present on cloud, resource will not get created.
 
