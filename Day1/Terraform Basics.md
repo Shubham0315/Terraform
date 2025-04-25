@@ -57,5 +57,11 @@ Configure AWS with CLI
 ![image](https://github.com/user-attachments/assets/48298cdf-428a-45ca-bf45-1f0016940934)
 
 - Now we can say our GitHub codespace is able to authenticate with AWS
+- To cross verify we can create resources on AWS UI and check with Codespaces CLI
 
+-------------------------------------------------------------
+
+Configure AWS for terraform
+-
+- 
 
