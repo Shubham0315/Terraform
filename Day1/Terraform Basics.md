@@ -63,5 +63,8 @@ Configure AWS with CLI
 
 Configure AWS for terraform
 -
-- 
+- Create main.tf like below for EC2
+
+![image](https://github.com/user-attachments/assets/ac8def93-c25b-4105-a4a6-c3a5cc508ac0)
+
 
