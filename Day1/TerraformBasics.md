@@ -100,8 +100,27 @@ Configure AWS for terraform
 - We can also add key-value pair which is used to login to the instance
 
 ![image](https://github.com/user-attachments/assets/7f1483fc-fbd6-40c6-9403-00ab80491faf)
-
-
  
 - If any of the field in tf file like ami is not present on cloud, resource will not get created.
 
+- Once our demo is done use destroy command. So terraform will look at state file and understand resources need to be destroyed
+
+![image](https://github.com/user-attachments/assets/83609f0b-999e-4a33-8b98-7d7a790244cb)
+![image](https://github.com/user-attachments/assets/59e9be9f-8f3b-4040-9b86-f7b924aca47f)
+
+-------------------------------------------------------------
+
+Terraform.state
+-
+- If we do ls in the repo where we created resources from tf file, we can see state file generated
+- If we see its content, we can see terraform has updated this file with lot of content
+- Terraform uses this state file to record what infrastructure it is creating.
+
+-------------------------------------------------------------
+
+Terraform lifecycle
+-
+- **terraform init** - to initialize configuration of cloud provider by authenticating with it
+- **terraform plan** - to show what is being created
+- **terraform apply** - to apply the configuration in tf file
+- **terraform destroy** - to detroy resources after use
