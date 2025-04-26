@@ -37,6 +37,80 @@ Workflow of Remote backend
 
 ----------------------------------------------------------------------------------------
 
+Practical
+-
+- Create main.tf. 
 
+![image](https://github.com/user-attachments/assets/4079109e-8734-4bfe-af2b-fa39857d8d45)
 
+- To check if state file is present :- **terraform show**
 
+![image](https://github.com/user-attachments/assets/11f95f53-e78c-4637-a5c9-263ea8093dc8)
+
+- When we do terraform init, couple of files get generated in the folder :- .terraform.lock.hcl
+
+- Now apply the config. State file now gets created in the folder. Once config is created, state file will get polulated with fields
+
+![image](https://github.com/user-attachments/assets/b595703f-d230-44f6-962a-dc750a17f0c6)
+
+- Here we can see instance config as well lie id, ami, ip etc.
+
+- If statefile has all the fields/variables, outputs are needed as developers if want to make changes to project, they dont have access to state file as it is sensitive.
+- Using state file terraform records all info.
+
+![image](https://github.com/user-attachments/assets/395d14b9-fb9e-4e6b-b617-414d81b41ca6)
+
+- Delete the state file. Now if we do terraform plan, it will again create state file and create EC2 once applied. Instead it should show us EC2 is already there
+
+- Now lets use S3 bucket as remote backend. Create backend.tf file where we need to provide backend config.
+  - Go to terraform docs and get the syntax which is one time config.
+  - For S3, provide bucket, region, key
+ 
+- But first write bucket logic in main.tf and create bucket
+
+![image](https://github.com/user-attachments/assets/9fee4ce3-b02e-4ebd-bbf9-3c37ea5ea79e)
+
+- Now init and apply
+
+![image](https://github.com/user-attachments/assets/970d1503-67bb-4fbb-84ba-b3358822f182)
+![image](https://github.com/user-attachments/assets/8c9f8a8f-90c9-472e-9165-ac759e7aca0c)
+
+- Now in the bucket file, provide bucket name with region name
+
+![image](https://github.com/user-attachments/assets/8d6a9e5d-5b73-4985-abe8-1701a5c0fa27)
+
+- Now delete the state file and re-initialize the project. Now state file will be changed to S3. So we've successfully configured backend called S3
+
+![image](https://github.com/user-attachments/assets/e1a323a6-56d8-4e6a-a9dd-d39c59f9628a)
+
+- Now when we apply, state file will be created in S3, not local
+
+![image](https://github.com/user-attachments/assets/001160d7-dddf-4669-b64b-7fff1a12348a)
+![image](https://github.com/user-attachments/assets/a6791e4b-1b10-497a-b4d5-b37a75a7f74f)
+
+- This is how we can modify our terraform logic not to store state file on local but store in S3 bucket
+  - Now if we do terraform show, it will read info from S3 bucket.
+  - This is how we make use of remote backend
+  - So if devops engineer has to make code changes to main.tf, we just need to update resource in main.tf and dont need to bother about state file. Also state file access will be restricted to only those who have access to S3.
+
+----------------------------------------------------------------------------------------
+
+Locking Mechanism
+-
+- When we run commands, terraform will try to take lock or cotrol the statement. Terraform creates lock file in local and terraform tries to control lock file
+- If 2 people are trying to update same project, and they try to apply at same time.
+- Everytime terraform takes control of state file, lock state file, one person at a time can hold the lock. Other has to wait until execution is done of first
+- So locking is imp as if multiple people tries to update same project only one person will do at a time.
+- For this we need to maintain lock somewhere like dynamoDB on AWS using which we can implement locking mechanism.
+
+- Use "dynamodb_table" inside which we define person who holds the lock. So table name is "terraform_lock"
+
+![image](https://github.com/user-attachments/assets/cff3c5ae-bf54-430e-af82-3a2c7ad591f7)
+
+- Now using it, we can say person1 holds lock as he is executing it. Once he's done, lock will be removed and other person will hold the lock.
+
+- Before running apply command, terraform will check if anyone holds the lock and if it is it will hold the execution.
+- Now in backend file provide lock details with table name
+- First execute main.tf apply so S3 and dynamodb will get created. After that execute backend as well so locking gets implemented
+
+![image](https://github.com/user-attachments/assets/0e71b2f4-eb6a-4ee7-857c-7a3e82d3299a)
