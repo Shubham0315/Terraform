@@ -129,10 +129,23 @@ We can see options like:-
 ![image](https://github.com/user-attachments/assets/d6f79c10-e657-4524-bcb2-1b5b779e7ae5)
 
   - Now write EC2 instance logic. Now use the value from vault and upload to EC2 instance
-  - Create EC2 resource. 
+  - Create EC2 resource.
+  - Write tags. Take value of tag from vault UI (test-secret)' password as tag. We'll inherit the same from data (read) resource above. We need to retrieve data of "username" from vault (as we just need data of username)
+
+![image](https://github.com/user-attachments/assets/f28b341b-0eba-46e2-9d67-73256863b34c)
+
+  - Now do terraform apply
+
+![image](https://github.com/user-attachments/assets/a0a7d467-f3aa-499c-b3bb-985345bbe01b)
+
+  - Now we can go to AWS UI and see inside EC2 if secret is added - Go to tags inside EC2
+
+![image](https://github.com/user-attachments/assets/a06d0153-feb8-4ca4-b194-64404f7b54a6)
 
   
   
-  
+---------------------------------------------------------------------------------------------------------------
+
+We can also do the same for S3 or other resources
 
 
