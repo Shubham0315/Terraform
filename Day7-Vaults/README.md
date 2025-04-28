@@ -147,5 +147,7 @@ We can see options like:-
 ---------------------------------------------------------------------------------------------------------------
 
 We can also do the same for S3 or other resources
+---------------------------------------------------------------------------------------------------------------
 
+Secret ID kabhi bhi change ho skta he. Please take care while running terraform commands
 
