@@ -98,8 +98,38 @@ We can see options like:-
 
   - Here now we've role id and secret id (access key and secret key in AWS)
   - Command :- **vault read auth/approle/role/terraform/role-id/secret-id**
+  - We can retrieve the secrets from vault
 
 ![image](https://github.com/user-attachments/assets/240fe419-d61d-48f9-a093-9906f1248cfb)
+
+
+- Now write terraform project. Create main.tf
+  - Write provider as usual. We'll use the password secret as tag value on EC2.
+  - Write provider as "vault" for secret maneger. We can create resources in vault or read resources inside vault
+  - To create resources we use "resource" keyword. To read resources use keyword "data" (retrieve info)
+  -   To authenticate with vault provider, we can use syntax as below. Use documentation
+  - Provide EC2 IP. Skip child token is necessary
+  - Provide auth method to authenticate with vault. We're using approle here. Provide role id and secret id in parameters
+
+![image](https://github.com/user-attachments/assets/3920da5f-0128-4b1e-bc51-9dbdb6290938)
+
+- To verify authentication is right, go to the folder and run terraform init. We can see its installing the vault
+
+![image](https://github.com/user-attachments/assets/cdbe3686-ad72-449a-b747-0a377171d79e)
+
+  - For authentication, use data keyword to read resources (take syntax from documentation)
+  - Here we need to change mount name and name as our requirement. Our mount is "kv" and name of secret is "test-secret" (check in vault page)
+
+![image](https://github.com/user-attachments/assets/62cc8f70-ec81-442d-8b29-7fb8b0293d38)
+
+  - Now to check if authentication is working fine or not. Use terraform apply
+  - We can see no resources are created as we're just reading them
+  - But if apply is done means hashicorp vault and terraform integration is done
+
+![image](https://github.com/user-attachments/assets/d6f79c10-e657-4524-bcb2-1b5b779e7ae5)
+
+  - Now write EC2 instance logic. Now use the value from vault and upload to EC2 instance
+  - Create EC2 resource. 
 
   
   
