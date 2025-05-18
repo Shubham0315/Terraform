@@ -75,7 +75,7 @@ Practical
 ![image](https://github.com/user-attachments/assets/970d1503-67bb-4fbb-84ba-b3358822f182)
 ![image](https://github.com/user-attachments/assets/8c9f8a8f-90c9-472e-9165-ac759e7aca0c)
 
-- Now in the bucket file, provide bucket name with region name
+- Now in the backend.tf file, provide bucket name with region name
 
 ![image](https://github.com/user-attachments/assets/8d6a9e5d-5b73-4985-abe8-1701a5c0fa27)
 
