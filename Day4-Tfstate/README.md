@@ -18,7 +18,7 @@
 - **Drawbacks**
   - Any action performed using terraform is recorded in state file. But if we dont want to store some sensitive info (passsword) in state file, by default terraform doesnt promote it. So who has access to infrastructure where we're storing project can access the sensitive info as well.
   - We can store all terraform logic in VCS and if VCS is compromised, people having access to VCS can see state file. Even if we restrict access to our GitHub, and if any of our devops team who has access to it modifies the config and applies it, resources will get created and he will push changes to github as well. Statefile also gets generated after applying. If devops engineer just updates the file but doesnt apply config, as statefile is not created, terraform will not know if any logic is updated.
-  - So if code change is made, the change should be executed and update statefile in local and push it to VCS as well.
+  - So if any code change is made, the change should be executed and update statefile in local and push it to VCS as well.
 
 ----------------------------------------------------------------------------------------
 
