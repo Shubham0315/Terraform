@@ -97,7 +97,7 @@ Practical
 
 Locking Mechanism
 -
-- When we run commands, terraform will try to take lock or cotrol the statement. Terraform creates lock file in local and terraform tries to control lock file
+- When we run commands, terraform will try to take lock or control the statement. Terraform creates lock file in local and terraform tries to control lock file
 - If 2 people are trying to update same project, and they try to apply at same time.
 - Everytime terraform takes control of state file, lock state file, one person at a time can hold the lock. Other has to wait until execution is done of first
 - So locking is imp as if multiple people tries to update same project only one person will do at a time.
