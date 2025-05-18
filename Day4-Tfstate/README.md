@@ -33,7 +33,7 @@ Remote Backend
 
 Workflow of Remote backend
 -
-- If our team has GitHub repo hosting terraform code. So instead of strong state file in GitHub we use S3 as remote backend. Even if any our team member wants to update logic, they can clone repo on laptop, make chnages and after verifying, they'll raise Pull Request PR back to GitHu repo. As they have applied config, it will also update S3 with logic. State file gets updated in S3
+- If our team has GitHub repo hosting terraform code. So instead of storing state file in GitHub we use S3 as remote backend. Even if any our team member wants to update logic, they can clone repo on laptop, make chnages and after verifying, they'll raise Pull Request PR back to GitHu repo. As they have applied config, it will also update S3 with logic. State file gets updated in S3
 
 ----------------------------------------------------------------------------------------
 
