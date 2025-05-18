@@ -71,7 +71,7 @@ Practical
 Provisioners Theory
 -
 - We used provisioners to execute and implement actions during creation.
-- While creating EC2 we copied file and executed commands.
+- While creating EC2 we copied file on EC2 and executed commands on it.
 - So provisioners lets us to copy things or execute actions at time of creation or destroy.
 
 - As devops engineers, we see challenges with terraform. Here we created EC2 but we were not able to install python if we dont use provisioners.
