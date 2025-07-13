@@ -48,3 +48,31 @@ How to secure statefile in terraform?
 
 - Dont store sensitive data in plain text inside variables or state, use hashicorp vault, external data sources to fetch secrets at runtime, use env variables
 - Enable versioning to recover previous state files
+
+
+Explain terraform modules
+-
+- It is a reusable, self contained group of resources that encapsulates terraform logic. Modules elp, reuse and scale terraform code efficiently
+- Module is just a folder of .tf files. Even our root config is a module
+- We use modules due to reusability, maintainability, consistency
+
+- Structure :- modules - Folder - main.tf, variables.tf, outputs.tf
+
+<img width="798" height="735" alt="image" src="https://github.com/user-attachments/assets/7acf5db7-194e-4eca-91e2-966c0f4e41f2" />
+
+<img width="787" height="233" alt="image" src="https://github.com/user-attachments/assets/911ff5fc-370e-4a08-a4c6-7cd853784321" />
+
+- When you call module, terraform loads module code, passes the variables and teats it like part of main config
+- Terraform locates module using source (folder path). Variables defined in module are populated. Reads resources files. Resources and created and statefile is updated.
+
+How to define and use variables in terraform?
+-
+- Variables are used to parameterize things, to pass values to project making config more dynamic, reusable and flexible.
+- We can replace hardcoded values with variables. We define them at one place and use them throughout .tf files
+- 2 types of variables
+  - Input :- To pass values to terraform modules or config
+  - Output :- To print specific values in output once apply command is performed
+ 
+<img width="1258" height="453" alt="image" src="https://github.com/user-attachments/assets/20d5f599-50d3-423e-8eaa-02df019847bb" />
+
+
