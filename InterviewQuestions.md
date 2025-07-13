@@ -121,6 +121,9 @@ How to use conditional expressions in terraform?
 - Syntax :- **condition ? true_value : false_value**
 - Basically used to assign values based on conditionals using ternary operator
 
+<img width="1007" height="355" alt="image" src="https://github.com/user-attachments/assets/f4c6cdf7-c678-406f-bb14-5f5b858af2f2" />
+
+
 What is terraform validate?
 -
 - Used to validate syntax and config of terraform file without creating resources
@@ -141,4 +144,3 @@ What are locals in terraform and how to use them?
 - locals in terraform are named values or expressions we define once and reuse throughout 
 
 
-<img width="1007" height="355" alt="image" src="https://github.com/user-attachments/assets/f4c6cdf7-c678-406f-bb14-5f5b858af2f2" />
