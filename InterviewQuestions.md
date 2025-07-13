@@ -141,6 +141,28 @@ How to use loops in terraform?
  
 What are locals in terraform and how to use them?
 -
-- locals in terraform are named values or expressions we define once and reuse throughout 
+- locals in terraform are named values or expressions we define once and reuse throughout our configuration.
+- They're read only, scoped to module and improve readability, reusability and performance by avoiding repetition of complex expressions
+- Define locals in one file and use in main.tf
 
+<img width="896" height="265" alt="image" src="https://github.com/user-attachments/assets/0e70ca78-afe8-4a95-b81f-744e771a8d90" />
 
+<img width="868" height="327" alt="image" src="https://github.com/user-attachments/assets/28bb397d-5fd0-4100-acf1-0557e88de158" />
+
+How to handle module versioning in terraform?
+-
+- Managed using "version" argument in source attribute of module lock
+
+What is terraform registry?
+- 
+- Public repository of terraform modules and providers that can be used to discover and use pre-built modules and providers
+- Helps to reuse infra code easily, securely and consistently
+- We can also publish our own module
+
+Terraform state command
+-
+- Used to inspect, modify and manage terraform state file which tracks infra
+- Use this command carefully as direct state manipulation can lead to broken configs
+- terraform state list :- lists all resources in statefile
+- terraform state show aws_instance.shubham :- show resource details
+- terraform state mv source destination :- move or rename resource
