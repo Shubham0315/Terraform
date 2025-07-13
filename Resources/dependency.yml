@@ -1,0 +1,16 @@
+#Implicit
+
+resource "aws_instance" "web" {
+  ami           = "ami-123456"
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.my_subnet.id  # <-- Implicit dependency
+}
+
+#Explicit
+
+resource "null_resource" "example" {
+  depends_on = [aws_s3_bucket.my_bucket]
+  provisioner "local-exec" {
+    command = "echo Bucket is created!"
+  }
+}
