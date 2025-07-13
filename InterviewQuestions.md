@@ -78,6 +78,7 @@ How to define and use variables in terraform?
 
 How to import existing resources into terraform?
 -
-- We can do using "terraform import" command which maps existing resources to terraform resources in state file
-- Command :- **terraform import aws_instance.example i-1234567890abcdef0**
+- We can do using "terraform import" command which maps existing resources to terraform resources in state file.
+- Command :- **terraform import resourceType.resourceName.resourceID**
+- This allows to bring resources created outside terraform under terraform's management without recreating them
 
