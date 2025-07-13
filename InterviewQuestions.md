@@ -30,4 +30,21 @@ How terraform manage dependencies?
 
 What is state file in terraform and why it is important to manage it?
 -
+- Statefils is a heart of terraform which records and store the info about the infrastructure create on cloud provider.
+- If we've to update resources and we dont have statefile, terraform will not understand it has already created resource
+- When we apply config, terraform checks statefile. Sees what is created and what new has to be created (update existing resources). So it compares difference between existing and new resources
+
+How to secure statefile in terraform?
 - 
+- Statefiles can be secured by storing them in remote backends with proper access controls and encryption like AWS S3 with server-side encryption and access control policies
+- Securing statefile is critical as it can contain sensitive information like cloud provider credentials, secrets, tokens.
+- So instead of storing locally, use remote backend as it supports encryption at rest, access control, versioning, locking.
+- Mostly preferred is AWS S3 + DynamoDB :- Encrypt with SSE/KMS, lock state with dynamoDB
+
+<img width="1247" height="368" alt="image" src="https://github.com/user-attachments/assets/0d2e715e-caa0-4dec-9245-8d6dcc22d93a" />
+
+- This encrypts state in S3, enables state locking via DynamoDB, keeps audit history via versioning
+- We can also restrict access to state using IAM policies
+
+- Dont store sensitive data in plain text inside variables or state, use hashicorp vault, external data sources to fetch secrets at runtime, use env variables
+- Enable versioning to recover previous state files
