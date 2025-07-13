@@ -70,9 +70,14 @@ How to define and use variables in terraform?
 - Variables are used to parameterize things, to pass values to project making config more dynamic, reusable and flexible.
 - We can replace hardcoded values with variables. We define them at one place and use them throughout .tf files
 - 2 types of variables
-  - Input :- To pass values to terraform modules or config
-  - Output :- To print specific values in output once apply command is performed
+  - **Input** :- To pass values to terraform modules or config
+  - **Output** :- To print specific values in output once apply command is performed
  
 <img width="1258" height="453" alt="image" src="https://github.com/user-attachments/assets/20d5f599-50d3-423e-8eaa-02df019847bb" />
 
+
+How to import existing resources into terraform?
+-
+- We can do using "terraform import" command which maps existing resources to terraform resources in state file
+- Command :- **terraform import aws_instance.example i-1234567890abcdef0**
 
