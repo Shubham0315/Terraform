@@ -82,3 +82,63 @@ How to import existing resources into terraform?
 - Command :- **terraform import resourceType.resourceName.resourceID**
 - This allows to bring resources created outside terraform under terraform's management without recreating them
 
+What are terraform provisioners?
+-
+- Provisioners are used to execute scripts or commands on local or remote machine during resource creation or destruction process
+- Types
+  - **local-exec** :- Runs command on machine where terraform is running. If we just need to print some lines of code in console, we use local exec and it copies output to a file
+
+ <img width="827" height="223" alt="image" src="https://github.com/user-attachments/assets/f9b54f84-6833-484e-92fe-432f41fa3936" />
+
+  - **remote-exec** :- Executes command on remote machine over SSH or WinRM (on EC2)
+
+ <img width="1417" height="415" alt="image" src="https://github.com/user-attachments/assets/0f4858bd-9047-46e1-ac8a-9c61f82dc313" />
+
+  - **file** :- Used to copy/transfer files from local to remote machines
+
+ <img width="560" height="138" alt="image" src="https://github.com/user-attachments/assets/5e43d889-1280-4471-9748-519c5ca8e22d" />
+
+
+How to handle secrets in terraform?
+-
+- Avoid hardcoding secrets in .tf files
+- Use environment variables storing in tf_var
+- Use terraform.tfvars
+- Use remote secret managers like hashicorp vault or AWS secrets manager
+- State files store secrets in plain text, to secure them use remote backends with encryption like S3+KMS
+
+What is backend in terraform?
+-
+- Backend mechanism determines how and where terraform stores state file
+- Backend = storage + locking + collaboration layer
+- Backend matters as terraform stores statefile which tracks real infrastructure. If file is lost, corrupted we can loose track of resources, we risk duplicating or destroying real infra
+- If no backend defined, terraform uses local backend by default storing statefile locally.
+- Commonly used :- S3 + DynamoDB
+
+How to use conditional expressions in terraform?
+-
+- Conditionals allow us to make descisions based on variables or resource attributes
+- Syntax :- **condition ? true_value : false_value**
+- Basically used to assign values based on conditionals using ternary operator
+
+What is terraform validate?
+-
+- Used to validate syntax and config of terraform file without creating resources
+
+How to format terraform config files?
+-
+- Command :- **terraform fmt**
+- Auto formats .tf files making code cleaner, easier to read and consistent
+
+How to use loops in terraform?
+-
+- Terraform supports loops using 2 expressions
+  - for loops :- to transform or generate collections
+  - for_each / count :- to create multiple resources dynamically
+ 
+What are locals in terraform and how to use them?
+-
+- locals in terraform are named values or expressions we define once and reuse throughout 
+
+
+<img width="1007" height="355" alt="image" src="https://github.com/user-attachments/assets/f4c6cdf7-c678-406f-bb14-5f5b858af2f2" />
