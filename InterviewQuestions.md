@@ -195,4 +195,23 @@ Terraform refresh
 
 What is lifecycle block in terraform?
 -
-- 
+- Lifecycle blocks are used to customize behaviour of resource management, how terraform handles creation, update and deletion of resources
+- Used to customize lifecycle of resource like creating befoe destroying, ignoring changes, preventing deletion
+- They're defined inside resource block and are useful when you want to
+  - Prevent resources from being destroyed
+  - Control order of operations
+ 
+<img width="1271" height="418" alt="image" src="https://github.com/user-attachments/assets/f7dd7c2f-bc85-4928-8bee-1ae6ead94b5a" />
+
+
+What is the difference between terraform output and output values in configuration?
+-
+- **terraform output** :- CLI command to display values of outputs in config after applying
+- **output values** :- Defined in .tf files to expose info after terraform runs. Defined in config files using output block
+
+What is count parameter in terraform?
+-
+- Used to create multiple instances of resource based on specified number
+
+
+
