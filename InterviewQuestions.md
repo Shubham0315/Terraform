@@ -213,5 +213,12 @@ What is count parameter in terraform?
 -
 - Used to create multiple instances of resource based on specified number
 
+What is purpose of terraform state mv command?
+-
+- It moves resource in state file to new address, useful for renaming resources without recreating them.
+- Command :- **terraform state mv aws_instance.old_name aws_instance.new_name**
 
-
+How to manage different environments in terraform?
+-
+- Different environments can be managed using workspaces or separate directories with different variable files and state files
+- Command to create :- **terraform workspace new dev**
