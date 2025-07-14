@@ -166,3 +166,33 @@ Terraform state command
 - terraform state list :- lists all resources in statefile
 - terraform state show aws_instance.shubham :- show resource details
 - terraform state mv source destination :- move or rename resource
+
+
+How to debug your terraform configurations?
+-
+- Debugging involves combination of commands, logging and best practices to identify and resolve issues
+- It is done using **TF_LOG** env variable to set log level and **terraform console** to interact with config
+
+- To enable detailed logging :- **export TF_LOG=DEBUG; terraform apply**
+- Check variable values :- **terraform console**
+
+What is the difference between local and remote backends in terraform?
+-
+- In terraform backends define where and how terraform stores statefile
+- **Local** :- Stores statefile on machine where terraform is run. Here no locking present so risk of file loss
+- **Remote** :- Stores statefile in remote and centralized location like S3. It enables team collaboration, supports state locking. Also its centrally stored and backed up
+
+How to handle provider versioning in terraform?
+-
+- Handle provider versioning is essential to ensure consistent and predictable infrastructure deployments across env.
+- Provider versioning is managed using required_providers block, specifying version constraints
+
+<img width="908" height="303" alt="image" src="https://github.com/user-attachments/assets/7be63e4e-8deb-420c-958e-7e0f186e766f" />
+
+Terraform refresh
+-
+- Updates statefile with current state of infrastructure without making any changes to configuration
+
+What is lifecycle block in terraform?
+-
+- 
