@@ -47,3 +47,25 @@ VPC Module
   - enable_dns_hostnames :- enable DNS hostnames inside VPC
  
 - This module exports useful attributes which we can reuse in other modules like vpc_id, public_subnets, private_subnets, igw_id
+
+------------------------------------------------------------------------------------
+
+EC2 Module
+-
+- It makes easier to launch and manage EC2 instances with various options like key-pairs, volumes, SGs
+
+<img width="1511" height="702" alt="image" src="https://github.com/user-attachments/assets/7a4d08fb-bdaa-4a6c-830a-85453853b9b6" />
+
+- Useful parameters
+  - ami :- AMI ID of instance
+  - instance_type :- EC2 type
+  - key_name :- SSH key pair name
+  - subnet_id
+  - vpc_security_groups_id :- List of SGs
+  - user_data :- Pass bootstrap scripts
+ 
+- Outputs
+  - id :- EC2 instance ID
+  - arn :- EC2 instance ARN
+  - public_ip :- Public IP address
+  - private_ip :- private IP address
