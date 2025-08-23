@@ -3,7 +3,7 @@ Features of terraform
 - Infrastructure as a Code  :- Define infra using declarative config using HCL which talks to cloud provider APIs and create resources
 - Executiion plan (terraform plan) :- Shows exactly what terraform will do before applying any changes, to understand the impact of code changes
 - Automated provisioning (terraform apply) :- Auto provisions, updates and deletes resources based on config files of resources
-- State management :- Maintains state file which records currect state of infrastructure. Enables resource tracking and incremental changes
+- State management :- Maintains state file which records correct state of infrastructure. Enables resource tracking and incremental changes
 - Multi cloud support
 - Modular and reusable configurations using modules
 
